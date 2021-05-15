@@ -3,8 +3,9 @@ import {
   productToCartIncreaseThunk,
   productToCartReduceThunk,
 } from "../../redux/Cart/productToCart/productToCartAction";
-import { addOrderThunk } from "../../redux/orderDetail/addOrderDetail/addOrderAction";
-import DisplayOrderDetail from "../orderDetail/DisplayOrderDetail";
+//import { addOrderThunk } from "../../redux/orderDetail/addOrderDetail/addOrderAction";
+
+//import DisplayOrderDetail from "../orderDetail/DisplayOrderDetail";
 import "./productToCart.css";
 const AddOrRemoveProductFromCart = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const AddOrRemoveProductFromCart = () => {
   const response = useSelector((state) => {
     return {
       products: state.productToCart.products,
-      order: state.addOrder.orderDetail,
+      book: state.addOrder.booking,
       error: state.addOrder.error,
       customerId:state.viewAllCustomer.customer,
     };
@@ -21,9 +22,9 @@ const AddOrRemoveProductFromCart = () => {
   const onHandlePlace = (e) => {
     e.preventDefault();
     const customerId = response.customerId;
-    dispatch(addOrderThunk(customerId));
+    //dispatch(addOrderThunk(customerId));
   };
-  const onHandleReduce = (itemId) => {
+  const onHandleReduce = (productId) => {
     const data = {
       productId: productId,
       customerId: response.customerId,
@@ -58,10 +59,10 @@ const AddOrRemoveProductFromCart = () => {
         Place Order
       </button>
       {response.order ? (
-        <div className="container p-3 my-3 bg-dark text-white">
+        //<div className="container p-3 my-3 bg-dark text-white">
           <h4>Display Order</h4>
-          <DisplayBOOKING order={response.order} />
-        </div>
+         //<DisplayBOOKING order={response.order} />
+        //</div>
       ) : (
         ""
       )}
